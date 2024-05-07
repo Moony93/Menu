@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:th="http://www.thymeleaf.org">
+
+<style>
+
+	.block1 {
+	
+		font-family: sans-serif;
+		font-size: 20px;
+		display: block;
+		border: solid 15 px black;
+		color: white;
+		margin-left: auto;
+		margin-right: auto;
+		width: inherit;
+		background-color: #400080;
+		padding: 10px;
+		margin: 50px;
+		text-align: center;	
+	}
+	
+	.tButton {
+		
+		font-family: sans-serif;
+		font-size: 15px;
+		display: block;
+		border: solid 2px black;
+		color: black;
+		background-color: #8080c0;
+		padding: 6px;
+		text-align: center;	
+	}
+	
+	.tButton:hover {
+	
+		cursor:pointer;
+		color: white;
+		background-color: #400080;
+	}
+	
+	.largeButton {
+		
+		margin-top: 50px;
+		margin-bottom: 50px;
+		padding: 10px;
+		margin-left: auto;
+		margin-right: auto;
+		width: 500px;
+		font-family: sans-serif;
+		font-size: 25px;
+		display: block;
+		border: solid 2px black;
+		color: white;
+		background-color: #400080;
+		padding: 10px;
+		text-align: center;	
+	}
+	
+	.largeButton:hover {
+		
+		cursor:pointer;
+		color: black;
+		background-color: #ffffff;
+	}
+	
+	body {
+		
+		background-color: #8080ff;
+	}
+	
+	table {
+		font-family: serif;
+		margin-left: auto;
+		margin-right: auto;
+		width: 800px;
+		border: solid 5px black;
+		color: white;
+		text-align: center;
+	}
+	
+	th {
+		border: 2px solid gray;
+		width: 25%;
+		font-size: 20px;
+		text-align: center;
+		padding: 5px;
+		background: pink;
+		color: black;
+	}
+	
+</style>
+
+<head>
+	<meta charset="ISO-8859-1">
+
+	<title>All the small things - New recipe</title>
+	
+</head>
+
+<header>
+	<div class="block1">
+		<h1>Restaurant "All the small things" Menu</h1><br>
+		<h2>Add a new Recipe</h2>
+	</div>
+</header>
+
+<body>
+	<div align= "center">
+	
+		<!-- richiamo l'attributo editedRecipe dato dal controller tramite addAttribute che stavolta è chiamato dal ModelAndView, che mi rappresenta l'oggetto Recipe da modificare-->
+		<form th:action="@{/saveRecipe}" th:object ="${editedRecipe}" method="post">
+			<table>
+				<tr>
+					<th>Recipe editing</th>
+				</tr>
+				
+				<tr>
+					<td>ID:</td>
+					<td><input type="text" th:field="*{id}" readonly="readonly"/></td>
+				</tr>
+				
+				<tr>
+					<td>Recipe name:</td>
+					<td><input type="text" th:field = "*{name}"></td>
+				</tr>
+				
+				<tr>
+					<td>Cost:</td>
+					<td><input type="text" th:field = "*{cost}"></td>
+				</tr>
+				
+				<tr>
+					<td>Vegan:</td>
+					<td><input type="radio" th:field = "*{Vegan}" value = "true">Yes</td>
+					<td><input type="radio" th:field = "*{Vegan}" value = "false">No</td>
+				</tr>		
+			</table>
+				<button class = "largeButton" type="submit">Save</button>
+		</form>
+	</div>
+	
+</body>
+</html>

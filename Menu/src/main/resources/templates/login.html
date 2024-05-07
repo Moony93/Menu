@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<style>
+
+	.block1 {
+		
+		font-family: sans-serif;
+		font-size: 20px;
+		display: block;
+		border: solid 15 px black;
+		color: white;
+		margin-left: auto;
+		margin-right: auto;
+		width: inherit;
+		background-color: #400080;
+		padding: 10px;
+		margin: 50px;
+		text-align: center;	
+	}
+	
+	.tButton {
+		
+		font-family: sans-serif;
+		font-size: 15px;
+		display: block;
+		border: solid 2px black;
+		color: black;
+		background-color: #8080c0;
+		padding: 6px;
+		text-align: center;	
+	}
+	
+	.tButton:hover {
+	
+		cursor:pointer;
+		color: white;
+		background-color: #400080;
+	}
+	
+	.largeButton {
+		
+		display: inline-block;
+		margin-top: 50px;
+		margin-bottom: 50px;
+		margin-left: auto;
+		margin-right: auto;
+		width: auto;
+		font-family: sans-serif;
+		font-size: 25px;
+		border: solid 2px black;
+		color: white;
+		background-color: #400080;
+		padding: 10px;
+		text-align: center;	
+	}
+	
+	.largeButton:hover {
+		
+		cursor:pointer;
+		color: black;
+		background-color: #ffffff;
+	}
+	
+	body {
+		
+		background-color: #8080ff;
+	}
+	
+	table {
+		font-family: serif;
+		margin-left: auto;
+		margin-right: auto;
+		width: 800px;
+		border: solid 5px black;
+		color: white;
+	}
+	
+	th {
+		border: 2px solid gray;
+		width: auto;
+		font-size: 20px;
+		text-align: center;
+		padding: 5px;
+		background: pink;
+		color: black;
+	}	
+</style>
+
+<head>
+	<meta charset="ISO-8859-1">
+	<title>"All the small things" Login Page</title>
+</head>
+
+<header>
+	<div class="block1">
+		<h1>Restaurant "All the small things"</h1><br>
+	</div>
+</header>
+
+<body>
+	<div align= "center">
+	
+		<form th:action="@{/login}" th:object="${loginCustomer}" method="post">
+		
+			<table>
+				<tr>
+					<th colspan="5">Login to view our menu</th>
+				</tr>
+				<tr>
+					<td>Username</td>
+					<td><input type="text" th:field="*{username}"></td>
+				</tr>
+				<tr>
+					<td>Password</td>
+					<td><input type="text" th:field="*{password}"></td>
+				</tr>
+			</table>
+			
+			<button class="largeButton" type="submit">Login</button>
+			
+			<a class="largeButton" th:href="@{/newCustomer}">Register</a>
+			
+		</form>
+	</div>
+	
+
+</body>
+
+</html>
